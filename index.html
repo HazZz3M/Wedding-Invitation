@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دعوة زفاف | نورهان & خالد</title>
+  <meta name="description" content="دعوة زفاف خاصة لحضور حفل زفاف نورهان وخالد في قاعة اللؤلؤة بتاريخ 1 أكتوبر 2026.">
+  
+  <!-- Google Fonts: Luxury Arabic Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Marhey:wght@400;600&family=Reem+Kufi:wght@400;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Gold Stardust Canvas -->
+  <canvas id="sparkle-canvas"></canvas>
+
+  <!-- Minimal Audio Toggle -->
+  <button id="music-btn" class="music-toggle" aria-label="تشغيل الموسيقى الهادئة" title="تشغيل / إيقاف الموسيقى">
+    <span class="music-wave">
+      <span></span><span></span><span></span><span></span>
+    </span>
+    <span id="music-text">موسيقى هادئة</span>
+  </button>
+
+  <!-- Main Application Wrapper -->
+  <div class="invitation-container">
+
+    <!-- Screen 1: The Sealed Envelope Motion (Before Opening) -->
+    <div id="envelope-screen" class="envelope-screen">
+      
+      <!-- Personalized Guest Banner -->
+      <div class="guest-card-header">
+        <div class="royal-crest">⚜</div>
+        <p class="greeting-pre">دعوة زفاف خاصة ومميزة</p>
+        <h2 id="guest-display" class="guest-name">ضيفنا العزيز</h2>
+        <div class="personalize-bar">
+          <input type="text" id="guest-input" placeholder="اكتب اسمك لتخصيص بطاقتك..." maxlength="35">
+          <button id="update-guest-btn">تأكيد</button>
+        </div>
+      </div>
+
+      <!-- The Elegant Interactive Envelope -->
+      <div class="envelope-box" id="envelope-box">
+        <div class="envelope-front">
+          <div class="envelope-texture"></div>
+          
+          <!-- Monogram Crest -->
+          <div class="monogram-crest">
+            <span class="crest-letter">ن</span>
+            <span class="crest-and">&</span>
+            <span class="crest-letter">خ</span>
+          </div>
+
+          <div class="envelope-lines">
+            <span class="line-gold"></span>
+            <span class="line-star">✦</span>
+            <span class="line-gold"></span>
+          </div>
+
+          <!-- The Wax Seal with Pulse -->
+          <div class="wax-seal" id="wax-seal" role="button" tabindex="0" aria-label="افتح بطاقة الدعوة">
+            <div class="wax-seal-core">
+              <span class="wax-initials">ن & خ</span>
+              <span class="wax-date">2026</span>
+            </div>
+            <div class="wax-pulse-ring"></div>
+          </div>
+
+          <div class="open-prompt">
+            <span class="prompt-icon">👆</span>
+            <span class="prompt-text">المس الختم لفتح بطاقة الدعوة</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="screen-hint">يسعدنا ويشرفنا حضوركم ومشاركتنا فرحتنا</p>
+    </div>
+
+    <!-- Screen 2: The Unfolded Minimalist Luxury Card (After Opening) -->
+    <main id="card-screen" class="card-screen hidden">
+      
+      <!-- Option to reseal / view envelope again -->
+      <div class="top-nav">
+        <button id="reseal-btn" class="reseal-btn" title="إعادة إغلاق المظروف">
+          <span>✉️</span> إغلاق المظروف
+        </button>
+      </div>
+
+      <article class="luxury-wedding-card" id="wedding-card">
+        <!-- Elegant Filigree Frame Borders -->
+        <div class="card-border-ornament top-left"></div>
+        <div class="card-border-ornament top-right"></div>
+        <div class="card-border-ornament bottom-left"></div>
+        <div class="card-border-ornament bottom-right"></div>
+
+        <!-- Bismillah & Quranic Verse -->
+        <header class="card-section card-verse-section">
+          <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+          <div class="verse-container">
+            <p class="verse-text">« وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً »</p>
+            <span class="verse-surah">[ سورة الروم: 21 ]</span>
+          </div>
+        </header>
+
+        <!-- Personal Dedication -->
+        <div class="card-section invitation-lead">
+          <p class="lead-text">بكل مشاعر الود والتقدير، يسرنا دعوتكم لمشاركتنا فرحة العمر بمناسبة عقد قران وزفاف</p>
+        </div>
+
+        <!-- The Couple Names -->
+        <div class="card-section couple-section">
+          <div class="names-row">
+            <div class="name-unit">
+              <span class="role-badge">العريس</span>
+              <h1 class="person-name">خالد</h1>
+            </div>
+
+            <div class="and-symbol">
+              <span class="heart-icon">💍</span>
+              <span class="symbol-text">&</span>
+            </div>
+
+            <div class="name-unit">
+              <span class="role-badge">العروس</span>
+              <h1 class="person-name">نورهان</h1>
+            </div>
+          </div>
+          
+          <div class="royal-divider">
+            <span>❖</span>
+            <span class="divider-bar"></span>
+            <span>⚜</span>
+            <span class="divider-bar"></span>
+            <span>❖</span>
+          </div>
+        </div>
+
+        <!-- Date & Time Section -->
+        <section class="card-section date-section">
+          <div class="event-date-card">
+            <div class="date-header">موعد حفل الزفاف المبارك</div>
+            <div class="date-number">1</div>
+            <div class="date-month-year">أكتوبر 2026</div>
+            <div class="date-day">يوم الخميس • الساعة 8:00 مساءً</div>
+          </div>
+
+          <!-- Minimal Countdown Timer -->
+          <div class="countdown-wrapper">
+            <p class="countdown-title">العد التنازلي لليلة الفرح</p>
+            <div class="countdown-boxes">
+              <div class="c-box">
+                <span id="c-days" class="c-num">00</span>
+                <span class="c-label">يوم</span>
+              </div>
+              <div class="c-dot">:</div>
+              <div class="c-box">
+                <span id="c-hours" class="c-num">00</span>
+                <span class="c-label">ساعة</span>
+              </div>
+              <div class="c-dot">:</div>
+              <div class="c-box">
+                <span id="c-minutes" class="c-num">00</span>
+                <span class="c-label">دقيقة</span>
+              </div>
+              <div class="c-dot">:</div>
+              <div class="c-box">
+                <span id="c-seconds" class="c-num">00</span>
+                <span class="c-label">ثانية</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Venue & Location Section -->
+        <section class="card-section venue-section">
+          <div class="venue-box">
+            <span class="venue-badge">مكان الحفل</span>
+            <h2 class="venue-title">قاعة اللؤلؤة</h2>
+            <p class="venue-note">حضوركم يشرفنا ويزيد من بهجة ليلتنا</p>
+            
+            <a href="https://maps.google.com/?q=Pearl+Ballroom+قاعة+اللؤلؤة" target="_blank" rel="noopener noreferrer" class="map-link-btn">
+              <span class="map-pin">📍</span>
+              <span>عرض موقع القاعة على خرائط Google</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Footer Blessing -->
+        <footer class="card-section card-footer">
+          <p class="closing-blessing">دامت دياركم عامرة بالأفراح والمسرات</p>
+          <p class="inviting-families">الداعون: عائلتا العروسين</p>
+          <div class="footer-seal">نورهان & خالد • 2026</div>
+        </footer>
+
+      </article>
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
