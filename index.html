@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>دعوة زفاف | نورهان & خالد</title>
   <meta name="description" content="دعوة زفاف خاصة لحضور حفل زفاف نورهان وخالد في قاعة اللؤلؤة بتاريخ 1 أكتوبر 2026.">
   
@@ -11,7 +11,907 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Reem+Kufi:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ==========================================================================
+       Complete Self-Contained Luxury Stylesheet (Guaranteed to Load Everywhere)
+       ========================================================================== */
+    :root {
+      --bg-dark-top: #102420;
+      --bg-dark-center: #091714;
+      --bg-dark-base: #030807;
+
+      --card-pearl: #fffefb;
+      --card-border-gold: #dfceb1;
+
+      --gold-primary: #d4af37;
+      --gold-light: #faebb0;
+      --gold-dark: #8c6d1a;
+      --gold-metallic: linear-gradient(135deg, #faebb0 0%, #d4af37 40%, #9e7918 75%, #f6e298 100%);
+      --gold-foil: linear-gradient(45deg, #c7a052 0%, #fff1d0 28%, #d4af37 55%, #8f691b 80%, #faebb0 100%);
+
+      --wax-red-light: #b0262e;
+      --wax-red-main: #8c171e;
+      --wax-red-dark: #580c10;
+
+      --text-dark: #221f19;
+      --text-muted: #5e5748;
+      --text-light: #fbf9f4;
+
+      --font-arabic-heading: 'Aref Ruqaa', 'Amiri', serif;
+      --font-arabic-body: 'Amiri', serif;
+      --font-arabic-modern: 'Reem Kufi', 'Tajawal', sans-serif;
+      --font-arabic-sans: 'Tajawal', sans-serif;
+
+      --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: radial-gradient(circle at 50% 25%, var(--bg-dark-top) 0%, var(--bg-dark-center) 55%, var(--bg-dark-base) 100%);
+      color: var(--text-light);
+      font-family: var(--font-arabic-body);
+      line-height: 1.8;
+      position: relative;
+    }
+
+    /* Ambient Canvas */
+    #sparkle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Floating Music Toggle */
+    .music-toggle {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background: rgba(14, 30, 26, 0.88);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: var(--gold-light);
+      padding: 7px 15px;
+      border-radius: 30px;
+      font-family: var(--font-arabic-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 100;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .music-wave {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      height: 12px;
+    }
+
+    .music-wave span {
+      width: 2.5px;
+      height: 4px;
+      background-color: var(--gold-primary);
+      border-radius: 2px;
+      transition: height 0.2s ease;
+    }
+
+    .music-playing .music-wave span:nth-child(1) { animation: wave 0.8s infinite ease-in-out; }
+    .music-playing .music-wave span:nth-child(2) { animation: wave 0.6s infinite ease-in-out 0.15s; }
+    .music-playing .music-wave span:nth-child(3) { animation: wave 0.9s infinite ease-in-out 0.3s; }
+    .music-playing .music-wave span:nth-child(4) { animation: wave 0.7s infinite ease-in-out 0.45s; }
+
+    @keyframes wave {
+      0%, 100% { height: 3px; }
+      50% { height: 14px; }
+    }
+
+    /* Main Container */
+    .invitation-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 65px 16px 40px;
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       1. The Envelope Stage
+       ========================================================================== */
+    .envelope-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      transition: opacity 0.7s var(--ease-cinematic), transform 0.7s var(--ease-cinematic);
+    }
+
+    .envelope-stage.stage-hidden {
+      display: none !important;
+      opacity: 0;
+    }
+
+    .guest-welcome {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .crest-icon {
+      font-size: 2.2rem;
+      color: var(--gold-primary);
+      margin-bottom: 4px;
+      animation: floatSubtle 3s ease-in-out infinite;
+    }
+
+    .welcome-intro {
+      font-size: 1.15rem;
+      color: #d6ccba;
+      margin-bottom: 4px;
+    }
+
+    .guest-name-title {
+      font-family: var(--font-arabic-heading);
+      font-size: 2.5rem;
+      line-height: 1.25;
+      background: var(--gold-metallic);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+      text-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+    }
+
+    .guest-input-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(14, 30, 26, 0.75);
+      padding: 5px 6px 5px 14px;
+      border-radius: 25px;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      margin-top: 5px;
+      max-width: 95vw;
+    }
+
+    .guest-input-wrap input {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-family: var(--font-arabic-sans);
+      font-size: 0.95rem;
+      outline: none;
+      text-align: right;
+      width: 180px;
+    }
+
+    .guest-input-wrap input::placeholder {
+      color: #9c9485;
+    }
+
+    .guest-input-wrap button {
+      background: var(--gold-metallic);
+      color: #120e03;
+      border: none;
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-family: var(--font-arabic-sans);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .guest-input-wrap button:hover {
+      transform: scale(1.05);
+    }
+
+    /* 3D Realistic Envelope */
+    .envelope-3d-wrapper {
+      perspective: 1200px;
+      width: 330px;
+      max-width: 90vw;
+      height: 220px;
+      position: relative;
+      margin: 15px auto 25px;
+      cursor: pointer;
+    }
+
+    .envelope-box {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.25);
+      border-radius: 10px;
+      transition: transform 0.4s ease;
+    }
+
+    .envelope-box:hover {
+      transform: translateY(-4px);
+    }
+
+    .env-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #112621 0%, #0c1c18 100%);
+      border-radius: 10px;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      z-index: 1;
+    }
+
+    /* Card Inside */
+    .env-card-inside {
+      position: absolute;
+      top: 6%;
+      left: 5%;
+      width: 90%;
+      height: 88%;
+      background: var(--card-pearl);
+      border-radius: 8px;
+      padding: 12px;
+      color: var(--text-dark);
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+      z-index: 2;
+      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .card-inside-border {
+      border: 1px solid #ebdcc5;
+      height: 100%;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 8px;
+    }
+
+    .mini-crest {
+      font-family: var(--font-arabic-heading);
+      font-size: 1.25rem;
+      color: var(--gold-dark);
+    }
+
+    .mini-divider {
+      width: 35px;
+      height: 1.5px;
+      background: var(--gold-metallic);
+      margin: 4px auto 6px;
+    }
+
+    .mini-verse {
+      font-size: 0.75rem;
+      color: #7a7161;
+    }
+
+    .mini-couple {
+      font-family: var(--font-arabic-heading);
+      font-size: 1.35rem;
+      color: #1a160f;
+      margin: 2px 0;
+    }
+
+    .mini-date {
+      font-family: var(--font-arabic-modern);
+      font-size: 0.85rem;
+      color: var(--gold-dark);
+      font-weight: 700;
+    }
+
+    /* Flaps */
+    .env-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .flap-left {
+      background: linear-gradient(to right, #153029, #122923);
+      clip-path: polygon(0 0, 50% 50%, 0 100%);
+      z-index: 3;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    .flap-right {
+      background: linear-gradient(to left, #153029, #122923);
+      clip-path: polygon(100% 0, 50% 50%, 100% 100%);
+      z-index: 3;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .flap-bottom {
+      background: linear-gradient(to top, #193830, #132b25);
+      clip-path: polygon(0 100%, 50% 45%, 100% 100%);
+      z-index: 4;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      filter: drop-shadow(0 -3px 5px rgba(0, 0, 0, 0.2));
+    }
+
+    .flap-top {
+      background: linear-gradient(to bottom, #1d4037, #17332c);
+      clip-path: polygon(0 0, 100% 0, 50% 55%);
+      transform-origin: top center;
+      transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 5;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
+    }
+
+    /* Opening Motion */
+    .envelope-box.is-opening .flap-top {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+
+    .envelope-box.is-opening .env-card-inside {
+      transform: translateY(-120px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Wax Seal */
+    .wax-seal-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -45%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .wax-seal {
+      width: 74px;
+      height: 74px;
+      background: radial-gradient(circle at 35% 35%, var(--wax-red-light) 0%, var(--wax-red-main) 55%, var(--wax-red-dark) 100%);
+      border-radius: 50%;
+      box-shadow: 0 6px 18px rgba(88, 12, 16, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.35), inset 0 -2px 5px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      user-select: none;
+    }
+
+    .wax-seal:hover {
+      transform: scale(1.08);
+    }
+
+    .wax-seal-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wax-monogram {
+      font-family: var(--font-arabic-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffdf79;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+      line-height: 1.1;
+    }
+
+    .wax-year {
+      font-size: 0.65rem;
+      color: #f7ca55;
+      letter-spacing: 1px;
+    }
+
+    .wax-glow-ring {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
+      animation: pulseGlow 2s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    .tap-callout {
+      margin-top: 14px;
+      background: rgba(14, 30, 26, 0.9);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.88rem;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      animation: bounceTouch 2s infinite ease-in-out;
+    }
+
+    .envelope-tip {
+      font-size: 1rem;
+      color: #c9bc9e;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .wax-seal-container.breaking {
+      animation: waxBreak 0.6s var(--ease-cinematic) forwards;
+    }
+
+    @keyframes waxBreak {
+      0% { transform: translate(-50%, -45%) scale(1); filter: brightness(1.2); }
+      50% { transform: translate(-50%, -45%) scale(1.25) rotate(15deg); filter: brightness(2); }
+      100% { transform: translate(-50%, -45%) scale(0); opacity: 0; }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.2); opacity: 0.95; }
+    }
+
+    @keyframes bounceTouch {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+
+    @keyframes floatSubtle {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    /* ==========================================================================
+       2. The Luxury Unfolded Card Suite (Crucial: Hidden by default!)
+       ========================================================================== */
+    .invitation-suite {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 20;
+    }
+
+    /* Crucial: Must be completely hidden until unsealed! */
+    .invitation-suite.hidden {
+      display: none !important;
+    }
+
+    .invitation-suite.suite-visible {
+      display: flex !important;
+      animation: cardFadeUp 0.9s var(--ease-cinematic) forwards;
+    }
+
+    @keyframes cardFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .reseal-container {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 15px;
+    }
+
+    .reseal-action-btn {
+      background: rgba(14, 30, 26, 0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: var(--gold-light);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-family: var(--font-arabic-sans);
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .reseal-action-btn:hover {
+      background: rgba(20, 45, 39, 0.95);
+      border-color: var(--gold-primary);
+    }
+
+    /* Royal Card Shell */
+    .royal-card {
+      width: 100%;
+      background: linear-gradient(175deg, #fffefb 0%, #faf5ec 50%, #f5eee0 100%);
+      border-radius: 20px;
+      padding: 45px 22px 35px;
+      color: var(--text-dark);
+      position: relative;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5), 0 0 35px rgba(212, 175, 55, 0.2);
+      border: 2px solid var(--card-border-gold);
+      text-align: center;
+    }
+
+    .gold-corner {
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      pointer-events: none;
+    }
+
+    .c-top-right {
+      top: 12px;
+      right: 12px;
+      border-top: 2px double var(--gold-primary);
+      border-right: 2px double var(--gold-primary);
+    }
+
+    .c-top-left {
+      top: 12px;
+      left: 12px;
+      border-top: 2px double var(--gold-primary);
+      border-left: 2px double var(--gold-primary);
+    }
+
+    .c-bottom-right {
+      bottom: 12px;
+      right: 12px;
+      border-bottom: 2px double var(--gold-primary);
+      border-right: 2px double var(--gold-primary);
+    }
+
+    .c-bottom-left {
+      bottom: 12px;
+      left: 12px;
+      border-bottom: 2px double var(--gold-primary);
+      border-left: 2px double var(--gold-primary);
+    }
+
+    .card-block {
+      margin-bottom: 25px;
+    }
+
+    /* Header & Quran Verse */
+    .bismillah-text {
+      font-family: var(--font-arabic-heading);
+      font-size: 1.65rem;
+      color: var(--gold-dark);
+      margin-bottom: 12px;
+    }
+
+    .quran-quote-box {
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 12px;
+      padding: 14px 16px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .quran-verse-text {
+      font-family: var(--font-arabic-heading);
+      font-size: 1.3rem;
+      line-height: 2;
+      color: #383226;
+    }
+
+    .verse-sourat {
+      display: block;
+      font-size: 0.85rem;
+      color: #8c826e;
+      margin-top: 6px;
+    }
+
+    .welcome-text {
+      font-size: 1.22rem;
+      line-height: 1.75;
+      color: #4b4435;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* Couple Names */
+    .couple-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .partner-unit {
+      min-width: 140px;
+    }
+
+    .partner-role {
+      display: inline-block;
+      font-size: 0.95rem;
+      color: var(--gold-dark);
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .partner-name {
+      font-family: var(--font-arabic-heading);
+      font-size: 3.4rem;
+      font-weight: 700;
+      line-height: 1.15;
+      background: var(--gold-foil);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 6px rgba(180, 140, 40, 0.3));
+    }
+
+    .unite-symbol {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ring-emoji {
+      font-size: 1.4rem;
+      animation: ringPulse 2s infinite ease-in-out;
+    }
+
+    .and-char {
+      font-family: var(--font-arabic-heading);
+      font-size: 2.2rem;
+      color: var(--gold-primary);
+      line-height: 1;
+    }
+
+    @keyframes ringPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.22); }
+    }
+
+    .gold-line-separator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--gold-primary);
+      margin-top: 18px;
+      font-size: 1rem;
+    }
+
+    .gold-line {
+      width: 70px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+    }
+
+    /* Date & Countdown */
+    .date-countdown-block {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #ebdcc5;
+      padding: 24px 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .badge-title {
+      font-size: 1rem;
+      color: var(--gold-dark);
+      font-weight: 600;
+    }
+
+    .badge-number {
+      font-family: var(--font-arabic-modern);
+      font-size: 3.8rem;
+      font-weight: 700;
+      color: #17140f;
+      line-height: 1;
+      margin: 4px 0;
+    }
+
+    .badge-month {
+      font-family: var(--font-arabic-heading);
+      font-size: 1.7rem;
+      color: var(--gold-dark);
+      font-weight: 700;
+    }
+
+    .badge-timing {
+      font-size: 1.1rem;
+      color: #554e3f;
+      margin-top: 4px;
+    }
+
+    .countdown-module {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px dashed #e2d2ba;
+    }
+
+    .countdown-caption {
+      font-size: 0.95rem;
+      color: #796e5b;
+      margin-bottom: 12px;
+    }
+
+    .countdown-units {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cd-box {
+      background: linear-gradient(180deg, #163029 0%, #0c1c18 100%);
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 12px;
+      min-width: 62px;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cd-number {
+      font-family: var(--font-arabic-modern);
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1.1;
+    }
+
+    .cd-label {
+      font-size: 0.78rem;
+      color: #b7c7c2;
+      margin-top: 2px;
+    }
+
+    .cd-colon {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      margin-bottom: 12px;
+    }
+
+    /* Venue */
+    .venue-block {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #ebdcc5;
+      padding: 24px 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .venue-tag {
+      display: inline-block;
+      font-size: 0.9rem;
+      color: var(--gold-dark);
+      letter-spacing: 1px;
+    }
+
+    .venue-heading {
+      font-family: var(--font-arabic-heading);
+      font-size: 2.3rem;
+      color: #17140f;
+      margin: 4px 0 8px;
+    }
+
+    .venue-phrase {
+      font-size: 1.05rem;
+      color: #635b4c;
+      margin-bottom: 18px;
+    }
+
+    .venue-map-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #15322a 0%, #0e201c 100%);
+      color: var(--gold-light);
+      border: 1px solid var(--gold-primary);
+      padding: 13px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-family: var(--font-arabic-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .venue-map-button:hover {
+      background: linear-gradient(135deg, #1d453b 0%, #132f28 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+    }
+
+    .map-icon {
+      font-size: 1.2rem;
+    }
+
+    /* Footer */
+    .footer-block {
+      margin-top: 25px;
+      padding-top: 18px;
+      border-top: 1px dashed #dfd0bb;
+    }
+
+    .blessing-sentence {
+      font-family: var(--font-arabic-heading);
+      font-size: 1.4rem;
+      color: var(--gold-dark);
+    }
+
+    .families-names {
+      font-size: 1rem;
+      color: #635b4c;
+      margin: 6px 0 12px;
+    }
+
+    .card-final-monogram {
+      font-size: 0.88rem;
+      color: #9a8a72;
+      letter-spacing: 1px;
+    }
+
+    @media (min-width: 600px) {
+      .envelope-3d-wrapper {
+        width: 380px;
+        height: 250px;
+      }
+      .royal-card {
+        padding: 55px 40px 40px;
+      }
+      .partner-name {
+        font-size: 3.8rem;
+      }
+      .cd-box {
+        min-width: 70px;
+        padding: 12px 14px;
+      }
+      .cd-number {
+        font-size: 1.9rem;
+      }
+      .venue-map-button {
+        width: auto;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Ambient Gold Stardust Canvas -->
@@ -215,6 +1115,368 @@
 
   </div>
 
-  <script src="script.js"></script>
+  <!-- Complete Self-Contained JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Personalized Guest Name
+      const urlParams = new URLSearchParams(window.location.search);
+      const guestParam = urlParams.get("guest") || urlParams.get("name") || urlParams.get("to");
+      const storedName = localStorage.getItem("wedding_guest_name");
+      const defaultGuest = "ضيفنا العزيز";
+      const activeGuest = guestParam || storedName || defaultGuest;
+
+      const guestDisplay = document.getElementById("guest-name-display");
+      const guestInput = document.getElementById("guest-input");
+      const updateGuestBtn = document.getElementById("update-guest-btn");
+
+      if (guestDisplay) guestDisplay.textContent = activeGuest;
+      if (guestInput && (guestParam || storedName)) guestInput.value = activeGuest;
+
+      if (updateGuestBtn && guestInput) {
+        const handleUpdate = () => {
+          const val = guestInput.value.trim();
+          if (val) {
+            localStorage.setItem("wedding_guest_name", val);
+            if (guestDisplay) guestDisplay.textContent = val;
+          }
+        };
+        updateGuestBtn.addEventListener("click", handleUpdate);
+        guestInput.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") handleUpdate();
+        });
+      }
+
+      // 2. Realistic 3D Envelope Opening Sequence
+      const waxSeal = document.getElementById("wax-seal");
+      const waxSealContainer = document.getElementById("wax-seal-container");
+      const envelopeBox = document.getElementById("envelope-box");
+      const envelopeStage = document.getElementById("envelope-stage");
+      const invitationSuite = document.getElementById("invitation-suite");
+      const resealBtn = document.getElementById("reseal-btn");
+
+      let isEnvelopeOpen = false;
+
+      function executeEnvelopeOpening() {
+        if (isEnvelopeOpen) return;
+        isEnvelopeOpen = true;
+
+        audioEngine.playChime();
+        audioEngine.startMusic();
+
+        if (waxSeal) {
+          const rect = waxSeal.getBoundingClientRect();
+          spawnConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2, 45);
+        }
+
+        if (waxSealContainer) waxSealContainer.classList.add("breaking");
+
+        setTimeout(() => {
+          if (envelopeBox) envelopeBox.classList.add("is-opening");
+        }, 200);
+
+        setTimeout(() => {
+          if (envelopeStage) envelopeStage.classList.add("stage-hidden");
+
+          setTimeout(() => {
+            if (invitationSuite) {
+              invitationSuite.classList.remove("hidden");
+              invitationSuite.classList.add("suite-visible");
+            }
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            spawnConfetti(window.innerWidth / 2, window.innerHeight * 0.35, 55);
+          }, 500);
+        }, 1100);
+      }
+
+      function executeReseal() {
+        isEnvelopeOpen = false;
+        if (invitationSuite) {
+          invitationSuite.classList.remove("suite-visible");
+          invitationSuite.classList.add("hidden");
+        }
+
+        if (envelopeStage) {
+          envelopeStage.classList.remove("stage-hidden");
+          if (envelopeBox) envelopeBox.classList.remove("is-opening");
+          if (waxSealContainer) waxSealContainer.classList.remove("breaking");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+
+      if (waxSeal) {
+        waxSeal.addEventListener("click", executeEnvelopeOpening);
+        waxSeal.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            executeEnvelopeOpening();
+          }
+        });
+      }
+
+      if (resealBtn) {
+        resealBtn.addEventListener("click", executeReseal);
+      }
+
+      // 3. Countdown to October 1, 2026
+      const weddingDate = new Date("2026-10-01T20:00:00+03:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        const daysEl = document.getElementById("days-val");
+        const hoursEl = document.getElementById("hours-val");
+        const minsEl = document.getElementById("mins-val");
+        const secsEl = document.getElementById("secs-val");
+
+        if (!daysEl) return;
+
+        if (distance <= 0) {
+          daysEl.textContent = "00";
+          hoursEl.textContent = "00";
+          minsEl.textContent = "00";
+          secsEl.textContent = "00";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        daysEl.textContent = String(days).padStart(2, "0");
+        hoursEl.textContent = String(hours).padStart(2, "0");
+        minsEl.textContent = String(minutes).padStart(2, "0");
+        secsEl.textContent = String(seconds).padStart(2, "0");
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // 4. Stardust Canvas
+      const canvas = document.getElementById("sparkle-canvas");
+      const ctx = canvas.getContext("2d");
+
+      let w = (canvas.width = window.innerWidth);
+      let h = (canvas.height = window.innerHeight);
+
+      window.addEventListener("resize", () => {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      });
+
+      const ambientDust = [];
+      const dustCount = 45;
+
+      for (let i = 0; i < dustCount; i++) {
+        ambientDust.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          radius: Math.random() * 2 + 0.6,
+          speedY: -Math.random() * 0.35 - 0.1,
+          speedX: (Math.random() - 0.5) * 0.25,
+          opacity: Math.random() * 0.7 + 0.2,
+          pulse: Math.random() * 0.02 + 0.01,
+          color: Math.random() > 0.35 ? "#d4af37" : "#faebb0"
+        });
+      }
+
+      const activeConfetti = [];
+
+      function spawnConfetti(x, y, count = 40) {
+        const palette = ["#d4af37", "#fbeea4", "#ffffff", "#c5a059", "#b0262e"];
+        for (let i = 0; i < count; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const velocity = Math.random() * 7 + 2;
+          activeConfetti.push({
+            x: x,
+            y: y,
+            vx: Math.cos(angle) * velocity,
+            vy: Math.sin(angle) * velocity - 2,
+            size: Math.random() * 6 + 3,
+            color: palette[Math.floor(Math.random() * palette.length)],
+            rotation: Math.random() * 360,
+            spin: (Math.random() - 0.5) * 10,
+            gravity: 0.16,
+            life: 1,
+            decay: Math.random() * 0.015 + 0.01
+          });
+        }
+      }
+
+      function renderCanvas() {
+        ctx.clearRect(0, 0, w, h);
+
+        for (let p of ambientDust) {
+          p.y += p.speedY;
+          p.x += p.speedX;
+          p.opacity += Math.sin(Date.now() * p.pulse) * 0.008;
+
+          if (p.y < -10) p.y = h + 10;
+          if (p.x < -10) p.x = w + 10;
+          if (p.x > w + 10) p.x = -10;
+
+          ctx.save();
+          ctx.globalAlpha = Math.max(0.1, Math.min(1, p.opacity));
+          ctx.fillStyle = p.color;
+          ctx.shadowBlur = 6;
+          ctx.shadowColor = "#d4af37";
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+
+        for (let i = activeConfetti.length - 1; i >= 0; i--) {
+          const c = activeConfetti[i];
+          c.x += c.vx;
+          c.y += c.vy;
+          c.vy += c.gravity;
+          c.rotation += c.spin;
+          c.life -= c.decay;
+
+          if (c.life <= 0) {
+            activeConfetti.splice(i, 1);
+            continue;
+          }
+
+          ctx.save();
+          ctx.globalAlpha = c.life;
+          ctx.translate(c.x, c.y);
+          ctx.rotate((c.rotation * Math.PI) / 180);
+          ctx.fillStyle = c.color;
+          ctx.fillRect(-c.size / 2, -c.size / 2, c.size, c.size * 0.6);
+          ctx.restore();
+        }
+
+        requestAnimationFrame(renderCanvas);
+      }
+      renderCanvas();
+
+      // 5. Audio Synthesizer
+      class AmbientAudioEngine {
+        constructor() {
+          this.ctx = null;
+          this.isPlaying = false;
+          this.timer = null;
+          this.btn = document.getElementById("music-btn");
+          this.text = document.getElementById("music-text");
+
+          if (this.btn) {
+            this.btn.addEventListener("click", () => this.toggle());
+          }
+        }
+
+        init() {
+          if (!this.ctx) {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            this.ctx = new AudioCtx();
+          }
+          if (this.ctx.state === "suspended") {
+            this.ctx.resume();
+          }
+        }
+
+        playChime() {
+          try {
+            this.init();
+            const now = this.ctx.currentTime;
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(523.25, now);
+            osc.frequency.exponentialRampToValueAtTime(783.99, now + 0.35);
+
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.linearRampToValueAtTime(0.18, now + 0.05);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.7);
+
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+
+            osc.start(now);
+            osc.stop(now + 0.7);
+          } catch (e) {}
+        }
+
+        startMusic() {
+          if (this.isPlaying) return;
+          try {
+            this.init();
+            this.isPlaying = true;
+            document.body.classList.add("music-playing");
+            if (this.text) this.text.textContent = "إيقاف الموسيقى";
+
+            const notes = [392.0, 440.0, 523.25, 587.33, 659.25, 783.99];
+            const chords = [
+              [0, 2, 4],
+              [1, 3, 5],
+              [0, 3, 4],
+              [2, 4, 5]
+            ];
+
+            let chordIdx = 0;
+            let step = 0;
+
+            this.timer = setInterval(() => {
+              if (!this.isPlaying || !this.ctx) return;
+              const currentChord = chords[chordIdx];
+              const freq = notes[currentChord[step % currentChord.length]];
+              this.playNote(freq);
+
+              step++;
+              if (step % 4 === 0) {
+                chordIdx = (chordIdx + 1) % chords.length;
+              }
+            }, 800);
+          } catch (e) {}
+        }
+
+        playNote(freq) {
+          if (!this.ctx) return;
+          const now = this.ctx.currentTime;
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          const filter = this.ctx.createBiquadFilter();
+
+          osc.type = "triangle";
+          osc.frequency.setValueAtTime(freq, now);
+
+          filter.type = "lowpass";
+          filter.frequency.setValueAtTime(1200, now);
+          filter.frequency.exponentialRampToValueAtTime(250, now + 1.4);
+
+          gain.gain.setValueAtTime(0.001, now);
+          gain.gain.linearRampToValueAtTime(0.08, now + 0.08);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 1.8);
+
+          osc.connect(filter);
+          filter.connect(gain);
+          gain.connect(this.ctx.destination);
+
+          osc.start(now);
+          osc.stop(now + 1.8);
+        }
+
+        stopMusic() {
+          this.isPlaying = false;
+          document.body.classList.remove("music-playing");
+          if (this.timer) {
+            clearInterval(this.timer);
+            this.timer = null;
+          }
+          if (this.text) this.text.textContent = "موسيقى هادئة";
+        }
+
+        toggle() {
+          if (this.isPlaying) this.stopMusic();
+          else this.startMusic();
+        }
+      }
+
+      const audioEngine = new AmbientAudioEngine();
+    });
+  </script>
 </body>
 </html>
