@@ -1,6 +1,6 @@
 /**
  * Royal Wedding Invitation - Norhan & Khalid (نورهان & خالد)
- * Clean, Elegant & Cinematic Controller
+ * Realistic Envelope Opening & Responsive Mobile Controller
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const defaultGuest = "ضيفنا العزيز";
   const activeGuest = guestParam || storedName || defaultGuest;
 
-  const guestDisplay = document.getElementById("guest-display");
+  const guestDisplay = document.getElementById("guest-name-display");
   const guestInput = document.getElementById("guest-input");
   const updateGuestBtn = document.getElementById("update-guest-btn");
 
@@ -42,74 +42,97 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ========================================================================
-  // 2. The Smooth Invitation Opening Motion
+  // 2. Realistic 3D Envelope Opening Motion Sequence
   // ========================================================================
   const waxSeal = document.getElementById("wax-seal");
-  const envelopeScreen = document.getElementById("envelope-screen");
-  const cardScreen = document.getElementById("card-screen");
+  const waxSealContainer = document.getElementById("wax-seal-container");
+  const envelopeBox = document.getElementById("envelope-box");
+  const envelopeStage = document.getElementById("envelope-stage");
+  const invitationSuite = document.getElementById("invitation-suite");
   const resealBtn = document.getElementById("reseal-btn");
 
-  let isOpen = false;
+  let isEnvelopeOpen = false;
 
-  function triggerOpen() {
-    if (isOpen) return;
-    isOpen = true;
+  function executeEnvelopeOpening() {
+    if (isEnvelopeOpen) return;
+    isEnvelopeOpen = true;
 
-    // Start gentle audio & play wax release chime
+    // 1. Play soft audio chime & start ambient harp
     audioEngine.playChime();
     audioEngine.startMusic();
 
-    // Spawn gold confetti burst right at wax seal position
+    // 2. Explode golden confetti at wax seal coordinates
     if (waxSeal) {
       const rect = waxSeal.getBoundingClientRect();
-      spawnConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2, 40);
-      waxSeal.classList.add("breaking");
+      spawnConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2, 45);
     }
 
-    // Smooth cinematic transition to the luxury card
+    // 3. Break the wax seal
+    if (waxSealContainer) {
+      waxSealContainer.classList.add("breaking");
+    }
+
+    // 4. Open top flap in 3D & slide card upwards out of the envelope
     setTimeout(() => {
-      envelopeScreen.classList.add("vanish");
+      if (envelopeBox) {
+        envelopeBox.classList.add("is-opening");
+      }
+    }, 200);
+
+    // 5. Smoothly transition to the full luxury wedding card
+    setTimeout(() => {
+      if (envelopeStage) {
+        envelopeStage.classList.add("stage-hidden");
+      }
+
       setTimeout(() => {
-        envelopeScreen.style.display = "none";
-        cardScreen.classList.remove("hidden");
-        cardScreen.classList.add("visible");
+        if (envelopeStage) envelopeStage.style.display = "none";
+        if (invitationSuite) {
+          invitationSuite.classList.remove("hidden");
+          invitationSuite.classList.add("suite-visible");
+        }
         window.scrollTo({ top: 0, behavior: "smooth" });
 
-        // Gentle celebratory burst for card revelation
-        spawnConfetti(window.innerWidth / 2, window.innerHeight * 0.35, 50);
+        // Celebratory sparkles for the full card
+        spawnConfetti(window.innerWidth / 2, window.innerHeight * 0.35, 55);
       }, 500);
-    }, 600);
+    }, 1100);
   }
 
-  function triggerReseal() {
-    isOpen = false;
-    cardScreen.classList.remove("visible");
-    cardScreen.classList.add("hidden");
+  function executeReseal() {
+    isEnvelopeOpen = false;
+    if (invitationSuite) {
+      invitationSuite.classList.remove("suite-visible");
+      invitationSuite.classList.add("hidden");
+    }
 
-    envelopeScreen.style.display = "flex";
-    setTimeout(() => {
-      envelopeScreen.classList.remove("vanish");
-      if (waxSeal) waxSeal.classList.remove("breaking");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 50);
+    if (envelopeStage) {
+      envelopeStage.style.display = "flex";
+      setTimeout(() => {
+        envelopeStage.classList.remove("stage-hidden");
+        if (envelopeBox) envelopeBox.classList.remove("is-opening");
+        if (waxSealContainer) waxSealContainer.classList.remove("breaking");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 50);
+    }
   }
 
   if (waxSeal) {
-    waxSeal.addEventListener("click", triggerOpen);
+    waxSeal.addEventListener("click", executeEnvelopeOpening);
     waxSeal.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        triggerOpen();
+        executeEnvelopeOpening();
       }
     });
   }
 
   if (resealBtn) {
-    resealBtn.addEventListener("click", triggerReseal);
+    resealBtn.addEventListener("click", executeReseal);
   }
 
   // ========================================================================
-  // 3. Real-Time Countdown to October 1, 2026 20:00:00
+  // 3. Live Countdown to October 1, 2026 (20:00:00)
   // ========================================================================
   const weddingDate = new Date("2026-10-01T20:00:00+03:00").getTime();
 
@@ -117,18 +140,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const now = new Date().getTime();
     const distance = weddingDate - now;
 
-    const daysEl = document.getElementById("c-days");
-    const hoursEl = document.getElementById("c-hours");
-    const minutesEl = document.getElementById("c-minutes");
-    const secondsEl = document.getElementById("c-seconds");
+    const daysEl = document.getElementById("days-val");
+    const hoursEl = document.getElementById("hours-val");
+    const minsEl = document.getElementById("mins-val");
+    const secsEl = document.getElementById("secs-val");
 
     if (!daysEl) return;
 
     if (distance <= 0) {
       daysEl.textContent = "00";
       hoursEl.textContent = "00";
-      minutesEl.textContent = "00";
-      secondsEl.textContent = "00";
+      minsEl.textContent = "00";
+      secsEl.textContent = "00";
       return;
     }
 
@@ -139,15 +162,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     daysEl.textContent = String(days).padStart(2, "0");
     hoursEl.textContent = String(hours).padStart(2, "0");
-    minutesEl.textContent = String(minutes).padStart(2, "0");
-    secondsEl.textContent = String(seconds).padStart(2, "0");
+    minsEl.textContent = String(minutes).padStart(2, "0");
+    secsEl.textContent = String(seconds).padStart(2, "0");
   }
 
   setInterval(updateCountdown, 1000);
   updateCountdown();
 
   // ========================================================================
-  // 4. Soft Ambient Gold Stardust & Confetti Canvas
+  // 4. Soft Ambient Gold Stardust & Celebration Confetti Canvas
   // ========================================================================
   const canvas = document.getElementById("sparkle-canvas");
   const ctx = canvas.getContext("2d");
@@ -161,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const ambientDust = [];
-  const dustCount = 55;
+  const dustCount = 50;
 
   for (let i = 0; i < dustCount; i++) {
     ambientDust.push({
@@ -172,14 +195,14 @@ document.addEventListener("DOMContentLoaded", () => {
       speedX: (Math.random() - 0.5) * 0.25,
       opacity: Math.random() * 0.7 + 0.2,
       pulse: Math.random() * 0.02 + 0.01,
-      color: Math.random() > 0.4 ? "#d4af37" : "#faebb0"
+      color: Math.random() > 0.35 ? "#d4af37" : "#faebb0"
     });
   }
 
   const activeConfetti = [];
 
   function spawnConfetti(x, y, count = 40) {
-    const palette = ["#d4af37", "#fbeea4", "#ffffff", "#c5a059", "#aa242c"];
+    const palette = ["#d4af37", "#fbeea4", "#ffffff", "#c5a059", "#b0262e"];
     for (let i = 0; i < count; i++) {
       const angle = Math.random() * Math.PI * 2;
       const velocity = Math.random() * 7 + 2;
@@ -199,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function loopCanvas() {
+  function renderCanvas() {
     ctx.clearRect(0, 0, w, h);
 
     // Floating Stardust
@@ -246,9 +269,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ctx.restore();
     }
 
-    requestAnimationFrame(loopCanvas);
+    requestAnimationFrame(renderCanvas);
   }
-  loopCanvas();
+  renderCanvas();
 
   // ========================================================================
   // 5. Minimal Web Audio Romantic Harp Synthesizer
@@ -309,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.add("music-playing");
         if (this.text) this.text.textContent = "إيقاف الموسيقى";
 
-        // Romantic Pentatonic Chord Progression
+        // Romantic Pentatonic Progression
         const notes = [392.0, 440.0, 523.25, 587.33, 659.25, 783.99]; // G4, A4, C5, D5, E5, G5
         const chords = [
           [0, 2, 4], // C

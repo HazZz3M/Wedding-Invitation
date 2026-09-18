@@ -9,7 +9,7 @@
   <!-- Google Fonts: Luxury Arabic Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Marhey:wght@400;600&family=Reem+Kufi:wght@400;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Reem+Kufi:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
 </head>
@@ -17,7 +17,7 @@
   <!-- Ambient Gold Stardust Canvas -->
   <canvas id="sparkle-canvas"></canvas>
 
-  <!-- Minimal Audio Toggle -->
+  <!-- Minimal Audio Toggle Button -->
   <button id="music-btn" class="music-toggle" aria-label="تشغيل الموسيقى الهادئة" title="تشغيل / إيقاف الموسيقى">
     <span class="music-wave">
       <span></span><span></span><span></span><span></span>
@@ -25,174 +25,189 @@
     <span id="music-text">موسيقى هادئة</span>
   </button>
 
-  <!-- Main Application Wrapper -->
-  <div class="invitation-container">
+  <!-- Page Wrapper -->
+  <div class="invitation-wrapper">
 
-    <!-- Screen 1: The Sealed Envelope Motion (Before Opening) -->
-    <div id="envelope-screen" class="envelope-screen">
+    <!-- 1. The Interactive Envelope Stage -->
+    <section id="envelope-stage" class="envelope-stage">
       
-      <!-- Personalized Guest Banner -->
-      <div class="guest-card-header">
-        <div class="royal-crest">⚜</div>
-        <p class="greeting-pre">دعوة زفاف خاصة ومميزة</p>
-        <h2 id="guest-display" class="guest-name">ضيفنا العزيز</h2>
-        <div class="personalize-bar">
+      <!-- Guest Welcome Header -->
+      <div class="guest-welcome">
+        <div class="crest-icon">⚜</div>
+        <p class="welcome-intro">دعوة زفاف كريمة خاصة إلى</p>
+        <h2 id="guest-name-display" class="guest-name-title">ضيفنا العزيز</h2>
+        <div class="guest-input-wrap">
           <input type="text" id="guest-input" placeholder="اكتب اسمك لتخصيص بطاقتك..." maxlength="35">
           <button id="update-guest-btn">تأكيد</button>
         </div>
       </div>
 
-      <!-- The Elegant Interactive Envelope -->
-      <div class="envelope-box" id="envelope-box">
-        <div class="envelope-front">
-          <div class="envelope-texture"></div>
+      <!-- 3D Realistic Opening Envelope Container -->
+      <div class="envelope-3d-wrapper" id="envelope-interactive">
+        <div class="envelope-box" id="envelope-box">
           
-          <!-- Monogram Crest -->
-          <div class="monogram-crest">
-            <span class="crest-letter">ن</span>
-            <span class="crest-and">&</span>
-            <span class="crest-letter">خ</span>
-          </div>
+          <!-- Envelope Interior Back -->
+          <div class="env-back"></div>
 
-          <div class="envelope-lines">
-            <span class="line-gold"></span>
-            <span class="line-star">✦</span>
-            <span class="line-gold"></span>
-          </div>
-
-          <!-- The Wax Seal with Pulse -->
-          <div class="wax-seal" id="wax-seal" role="button" tabindex="0" aria-label="افتح بطاقة الدعوة">
-            <div class="wax-seal-core">
-              <span class="wax-initials">ن & خ</span>
-              <span class="wax-date">2026</span>
+          <!-- The Peek Card Inside -->
+          <div class="env-card-inside" id="env-card-inside">
+            <div class="card-inside-border">
+              <span class="mini-crest">ن & خ</span>
+              <div class="mini-divider"></div>
+              <p class="mini-verse">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+              <h3 class="mini-couple">نورهان & خالد</h3>
+              <p class="mini-date">1 . 10 . 2026</p>
             </div>
-            <div class="wax-pulse-ring"></div>
           </div>
 
-          <div class="open-prompt">
-            <span class="prompt-icon">👆</span>
-            <span class="prompt-text">المس الختم لفتح بطاقة الدعوة</span>
+          <!-- Left Flap -->
+          <div class="env-flap flap-left"></div>
+          
+          <!-- Right Flap -->
+          <div class="env-flap flap-right"></div>
+          
+          <!-- Bottom Flap -->
+          <div class="env-flap flap-bottom"></div>
+
+          <!-- Top Foldable Flap (Opens Upwards in 3D) -->
+          <div class="env-flap flap-top" id="flap-top"></div>
+
+          <!-- The Wax Seal with Pulse & Tap Instruction -->
+          <div class="wax-seal-container" id="wax-seal-container">
+            <div class="wax-seal" id="wax-seal" role="button" tabindex="0" aria-label="اضغط لفتح المظروف">
+              <div class="wax-seal-inner">
+                <span class="wax-monogram">ن & خ</span>
+                <span class="wax-year">2026</span>
+              </div>
+              <div class="wax-glow-ring"></div>
+            </div>
+            
+            <div class="tap-callout">
+              <span class="tap-hand">👆</span>
+              <span>المس الختم لفتح المظروف</span>
+            </div>
           </div>
+
         </div>
       </div>
 
-      <p class="screen-hint">يسعدنا ويشرفنا حضوركم ومشاركتنا فرحتنا</p>
-    </div>
+      <p class="envelope-tip">✨ انقر على الختم الملكي لمشاهدة بطاقة الدعوة ✨</p>
+    </section>
 
-    <!-- Screen 2: The Unfolded Minimalist Luxury Card (After Opening) -->
-    <main id="card-screen" class="card-screen hidden">
+    <!-- 2. The Full Luxury Invitation Card Section -->
+    <main id="invitation-suite" class="invitation-suite hidden">
       
-      <!-- Option to reseal / view envelope again -->
-      <div class="top-nav">
-        <button id="reseal-btn" class="reseal-btn" title="إعادة إغلاق المظروف">
+      <!-- Option to reseal envelope and replay -->
+      <div class="reseal-container">
+        <button id="reseal-btn" class="reseal-action-btn">
           <span>✉️</span> إغلاق المظروف
         </button>
       </div>
 
-      <article class="luxury-wedding-card" id="wedding-card">
-        <!-- Elegant Filigree Frame Borders -->
-        <div class="card-border-ornament top-left"></div>
-        <div class="card-border-ornament top-right"></div>
-        <div class="card-border-ornament bottom-left"></div>
-        <div class="card-border-ornament bottom-right"></div>
+      <article class="royal-card" id="royal-card">
+        <!-- Luxury Gold Corner Ornaments -->
+        <div class="gold-corner c-top-right"></div>
+        <div class="gold-corner c-top-left"></div>
+        <div class="gold-corner c-bottom-right"></div>
+        <div class="gold-corner c-bottom-left"></div>
 
         <!-- Bismillah & Quranic Verse -->
-        <header class="card-section card-verse-section">
-          <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
-          <div class="verse-container">
-            <p class="verse-text">« وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً »</p>
-            <span class="verse-surah">[ سورة الروم: 21 ]</span>
+        <header class="card-block verse-block">
+          <p class="bismillah-text">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+          <div class="quran-quote-box">
+            <p class="quran-verse-text">« وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً »</p>
+            <span class="verse-sourat">[ سورة الروم: 21 ]</span>
           </div>
         </header>
 
-        <!-- Personal Dedication -->
-        <div class="card-section invitation-lead">
-          <p class="lead-text">بكل مشاعر الود والتقدير، يسرنا دعوتكم لمشاركتنا فرحة العمر بمناسبة عقد قران وزفاف</p>
+        <!-- Welcome Lead -->
+        <div class="card-block welcome-block">
+          <p class="welcome-text">بكل مشاعر الود والسرور، يسرنا ويشرفنا دعوتكم لمشاركتنا فرحة العمر بمناسبة حفل زفاف</p>
         </div>
 
-        <!-- The Couple Names -->
-        <div class="card-section couple-section">
-          <div class="names-row">
-            <div class="name-unit">
-              <span class="role-badge">العريس</span>
-              <h1 class="person-name">خالد</h1>
+        <!-- Couple Names Block -->
+        <div class="card-block couple-block">
+          <div class="couple-row">
+            <div class="partner-unit">
+              <span class="partner-role">العريس</span>
+              <h1 class="partner-name">خالد</h1>
             </div>
 
-            <div class="and-symbol">
-              <span class="heart-icon">💍</span>
-              <span class="symbol-text">&</span>
+            <div class="unite-symbol">
+              <span class="ring-emoji">💍</span>
+              <span class="and-char">&</span>
             </div>
 
-            <div class="name-unit">
-              <span class="role-badge">العروس</span>
-              <h1 class="person-name">نورهان</h1>
+            <div class="partner-unit">
+              <span class="partner-role">العروس</span>
+              <h1 class="partner-name">نورهان</h1>
             </div>
           </div>
-          
-          <div class="royal-divider">
+
+          <div class="gold-line-separator">
             <span>❖</span>
-            <span class="divider-bar"></span>
+            <span class="gold-line"></span>
             <span>⚜</span>
-            <span class="divider-bar"></span>
+            <span class="gold-line"></span>
             <span>❖</span>
           </div>
         </div>
 
-        <!-- Date & Time Section -->
-        <section class="card-section date-section">
-          <div class="event-date-card">
-            <div class="date-header">موعد حفل الزفاف المبارك</div>
-            <div class="date-number">1</div>
-            <div class="date-month-year">أكتوبر 2026</div>
-            <div class="date-day">يوم الخميس • الساعة 8:00 مساءً</div>
+        <!-- Date & Live Countdown -->
+        <section class="card-block date-countdown-block">
+          <div class="date-display-badge">
+            <div class="badge-title">موعد حفل الزفاف</div>
+            <div class="badge-number">1</div>
+            <div class="badge-month">أكتوبر 2026</div>
+            <div class="badge-timing">يوم الخميس • الساعة 8:00 مساءً</div>
           </div>
 
-          <!-- Minimal Countdown Timer -->
-          <div class="countdown-wrapper">
-            <p class="countdown-title">العد التنازلي لليلة الفرح</p>
-            <div class="countdown-boxes">
-              <div class="c-box">
-                <span id="c-days" class="c-num">00</span>
-                <span class="c-label">يوم</span>
+          <!-- Minimal Countdown -->
+          <div class="countdown-module">
+            <p class="countdown-caption">العد التنازلي لليلة العمر</p>
+            <div class="countdown-units">
+              <div class="cd-box">
+                <span id="days-val" class="cd-number">00</span>
+                <span class="cd-label">يوم</span>
               </div>
-              <div class="c-dot">:</div>
-              <div class="c-box">
-                <span id="c-hours" class="c-num">00</span>
-                <span class="c-label">ساعة</span>
+              <div class="cd-colon">:</div>
+              <div class="cd-box">
+                <span id="hours-val" class="cd-number">00</span>
+                <span class="cd-label">ساعة</span>
               </div>
-              <div class="c-dot">:</div>
-              <div class="c-box">
-                <span id="c-minutes" class="c-num">00</span>
-                <span class="c-label">دقيقة</span>
+              <div class="cd-colon">:</div>
+              <div class="cd-box">
+                <span id="mins-val" class="cd-number">00</span>
+                <span class="cd-label">دقيقة</span>
               </div>
-              <div class="c-dot">:</div>
-              <div class="c-box">
-                <span id="c-seconds" class="c-num">00</span>
-                <span class="c-label">ثانية</span>
+              <div class="cd-colon">:</div>
+              <div class="cd-box">
+                <span id="secs-val" class="cd-number">00</span>
+                <span class="cd-label">ثانية</span>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- Venue & Location Section -->
-        <section class="card-section venue-section">
-          <div class="venue-box">
-            <span class="venue-badge">مكان الحفل</span>
-            <h2 class="venue-title">قاعة اللؤلؤة</h2>
-            <p class="venue-note">حضوركم يشرفنا ويزيد من بهجة ليلتنا</p>
+        <!-- Venue Location -->
+        <section class="card-block venue-block">
+          <div class="venue-showcase">
+            <span class="venue-tag">مكان الحفل المبارك</span>
+            <h2 class="venue-heading">قاعة اللؤلؤة</h2>
+            <p class="venue-phrase">حضوركم يزدان به حفلنا وتكتمل به بهجتنا</p>
             
-            <a href="https://maps.google.com/?q=Pearl+Ballroom+قاعة+اللؤلؤة" target="_blank" rel="noopener noreferrer" class="map-link-btn">
-              <span class="map-pin">📍</span>
-              <span>عرض موقع القاعة على خرائط Google</span>
+            <a href="https://maps.google.com/?q=Pearl+Ballroom+قاعة+اللؤلؤة" target="_blank" rel="noopener noreferrer" class="venue-map-button">
+              <span class="map-icon">📍</span>
+              <span>موقع القاعة على خرائط Google</span>
             </a>
           </div>
         </section>
 
         <!-- Footer Blessing -->
-        <footer class="card-section card-footer">
-          <p class="closing-blessing">دامت دياركم عامرة بالأفراح والمسرات</p>
-          <p class="inviting-families">الداعون: عائلتا العروسين</p>
-          <div class="footer-seal">نورهان & خالد • 2026</div>
+        <footer class="card-block footer-block">
+          <p class="blessing-sentence">دامت دياركم عامرة بالأفراح والمسرات</p>
+          <p class="families-names">الداعون: عائلتا العروسين</p>
+          <div class="card-final-monogram">نورهان & خالد • 2026</div>
         </footer>
 
       </article>
